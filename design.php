@@ -4,19 +4,7 @@ use Fpdf\Fpdf;
 
 $fullname = $_GET['fullname']??null;
 
-class PDF extends FPDF 
-{ 
 
-function Footer() 
-{ 
-
-$this->SetY(-27); 
-$this->AddFont('Abhaya','','AbhayaLibre-Regular.php');
-$this->SetFont('Abhaya','I',8); 
-
-$this->Cell(0,10,'This certificate has been ©  © produced by thetutor',0,0,'R'); 
-} 
-} 
 
 $pdf = new FPDF('L','pt','A4'); 
 
@@ -43,10 +31,14 @@ $message = "This Certificate is given on this month of January on Completion of 
 $pdf->MultiCell(300,14,$message,0,'C',0); 
 
 
+$pdf->SetFont('Arial','I',18); 
+$pdf->SetXY(390,440); 
+$pdf->Cell(350,25,"Jello Mangune","B",0,'C',0); 
+
 $pdf->SetFont('Arial','B',16); 
-$pdf->SetXY(370,470); 
-$signature = "Exam Proctor"; 
-$pdf->Cell(350,19,$signature,"T",0,'C'); 
+$pdf->SetXY(490,470); 
+$pdf->Cell(350,19,"Officer-in-Charge",0,'C'); 
+
 
 $pdf->Output(); 
 ?> 
